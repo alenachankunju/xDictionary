@@ -13,6 +13,12 @@ function App() {
   ]
 
   const handleSearch = () => {
+    if (!searchTerm.trim()) {
+      setResult('Word not found in the dictionary.')
+      setDefinition('')
+      return
+    }
+
     const foundWord = dictionary.find(
       item => item.word.toLowerCase() === searchTerm.toLowerCase()
     )
@@ -28,7 +34,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1>XDictionary</h1>
+      <h1>Dictionary App</h1>
       <div className="search-container">
         <input
           type="text"
@@ -41,13 +47,10 @@ function App() {
           Search
         </button>
       </div>
-      {result && <p className="error-message">{result}</p>}
-      {definition && (
-        <div className="definition-container">
-          <h3>Definition:</h3>
-          <p>{definition}</p>
-        </div>
-      )}
+      <div className="definition-container">
+        <h3>Definition:</h3>
+        <p>{result || definition}</p>
+      </div>
     </div>
   )
 }

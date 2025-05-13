@@ -52,6 +52,7 @@ h1 {
   border-radius: 8px;
   margin-top: 1rem;
   text-align: left;
+  min-height: 100px;
 }
 
 .definition-container h3 {
@@ -62,4 +63,5 @@ h1 {
 .definition-container p {
   color: #4b5563;
   line-height: 1.5;
+  margin: 0;
 }
